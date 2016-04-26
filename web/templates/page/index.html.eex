@@ -1,0 +1,4 @@
+<div class="">
+  <h2><%= gettext "Hello!" %></h2>
+  <p class="">My name is Kelvin and this is a page on the internet.</p>
+</div>

@@ -1,0 +1,43 @@
+body .me {
+  font-family: "Roboto", "Helvetica", sans-serif;
+}
+
+.mdl-mini-footer a {
+  text-decoration: none;
+}
+.social-btn {
+  background-position: center;
+  background-size: contain;
+  background-color: white !important;
+  margin: 0 16px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  opacity: 0.46;
+  border-radius: 2px;
+}
+
+.social-btn__twitter {
+  background-image: url("../images/twitter-box.svg");
+}
+
+.social-btn__github {
+  background-image: url("../images/github-box.svg");
+}
+
+.social-btn__linkedin {
+  background-image: url("../images/linkedin-box.svg");
+}
+
+.social-btn__stackoverflow {
+  background-image: url("../images/stackoverflow.svg");
+}
+
+.me .mdl-mini-footer {
+  margin-top: 80px;
+  height: 120px;
+  padding: 40px;
+  align-items: center;
+  background-color: white;
+  box-sizing: border-box;
+}
