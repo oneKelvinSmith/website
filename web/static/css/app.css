@@ -2,17 +2,25 @@
   font-family: "Roboto", "Helvetica", sans-serif;
 }
 
-.me .cards {
+.me .max-width {
   max-width: 900px;
 }
 
-.me .my-image {
+
+.me .mdl-card__media--white-background {
+  background-color: white;
+}
+
+#my-picture {
   width: 100%;
   height: auto;
+  max-width: 256px;
+  border-radius: 2px;
 }
 
 .me .no-left-padding {
   padding-left: 0;
+  margin-left: 0;
 }
 
 .me .mdl-mini-footer {
