@@ -1,10 +1,29 @@
-body .me {
+.me body {
   font-family: "Roboto", "Helvetica", sans-serif;
 }
 
-.mdl-mini-footer a {
-  text-decoration: none;
+.me .cards {
+  max-width: 900px;
 }
+
+.me .my-image {
+  width: 100%;
+  height: auto;
+}
+
+.me .no-left-padding {
+  padding-left: 0;
+}
+
+.me .mdl-mini-footer {
+  margin-top: 80px;
+  height: 120px;
+  padding: 40px;
+  align-items: center;
+  background-color: white;
+  box-sizing: border-box;
+}
+
 .social-btn {
   background-position: center;
   background-size: contain;
@@ -33,11 +52,6 @@ body .me {
   background-image: url("../images/stackoverflow.svg");
 }
 
-.me .mdl-mini-footer {
-  margin-top: 80px;
-  height: 120px;
-  padding: 40px;
-  align-items: center;
-  background-color: white;
-  box-sizing: border-box;
+.social-link--no-underline {
+  text-decoration: none;
 }

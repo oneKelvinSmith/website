@@ -1,4 +1,13 @@
-<div class="">
-  <h2><%= gettext "Hello!" %></h2>
-  <p class="">My name is Kelvin and this is a page on the internet.</p>
+<div class="mdl-grid mdl-cell mdl-cell--12-col mdl-cell--4-col-tablet mdl-card mdl-shadow--4dp">
+  <div class="mdl-card__media mdl-cell mdl-cell--12-col-tablet">
+    <img class="my-image" alt="me" src="images/me_medium.jpg"/>
+  </div>
+  <div class="mdl-cell mdl-cell--8-col">
+    <h2 class="mdl-card__title-text"><%= gettext "Hello there!" %></h2>
+
+    <div class="mdl-card__supporting-text  mdl-cell mdl-cell--8-col no-left-padding">
+      <p>My name is Kelvin and this is a page on the internet.</p>
+      <p>Please feel free to puruse my internet presence...</p>
+    </div>
+  </div>
 </div>
