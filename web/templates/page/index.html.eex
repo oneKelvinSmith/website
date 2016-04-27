@@ -6,7 +6,7 @@
     <h2 class="mdl-card__title-text"><%= gettext "Welcome to my website!" %></h2>
 
     <div class="mdl-card__supporting-text mdl-cell mdl-cell--12-col no-left-padding">
-      <p>Hello, name is Kelvin. I'm a software developer and an (out of practice) yogi. I enjoy drinking tea when I'm not battling an obsession with coffee. Johannesburg is my home town but you'll find me wandering the streets of Edinburgh these days.</p>
+      <p>Hello, my name is Kelvin. I'm a software developer and an (out of practice) yogi. I enjoy drinking tea when I'm not battling an obsession with coffee. Johannesburg is my home town but you'll find me wandering the streets of Edinburgh these days.</p>
       <p>Please feel free to peruse my internet presence...</p>
     </div>
 
