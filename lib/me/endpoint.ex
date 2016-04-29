@@ -9,7 +9,7 @@ defmodule Me.Endpoint do
   # when deploying your static files in production.
   plug Plug.Static,
     at: "/", from: :me, gzip: false,
-    only: ~w(css fonts images js favicon.ico robots.txt)
+    only: ~w(css fonts images js favicon.ico robots.txt keybase.txt)
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
