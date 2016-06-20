@@ -21,11 +21,6 @@
           <span class="visuallyhidden">twitter</span>
         </button>
       </a>
-      <a href="https://linkedin.com/in/oneKelvinSmith" target="_blank" class="social-link--no-underline">
-        <button class="mdl-mini-footer--social-btn social-btn social-btn__linkedin">
-          <span class="visuallyhidden">linkedin</span>
-        </button>
-      </a>
       <a href="https://stackoverflow.com/cv/oneKelvinSmith" target="_blank" class="social-link--no-underline">
         <button class="mdl-mini-footer--social-btn social-btn social-btn__stackoverflow">
           <span class="visuallyhidden">stackoverflow</span>
