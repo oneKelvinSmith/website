@@ -3,8 +3,11 @@ terraform {
 }
 
 provider "aws" {
-  region = "eu-west-1"
+  region = "${var.region}"
 }
+
+
+# S3 Static Site
 
 data "aws_iam_policy_document" "website" {
   statement {
@@ -48,4 +51,52 @@ resource "aws_s3_bucket_object" "error" {
   etag         = "${md5(file("../static/error.html"))}"
   key          = "error.html"
   source       = "../static/error.html"
+}
+
+# Cloudfront
+
+resource "aws_cloudfront_distribution" "s3_distribution" {
+  origin {
+    domain_name = "${aws_s3_bucket.website.bucket_domain_name}"
+    origin_id   = "${var.domain}"
+  }
+
+  enabled             = true
+  is_ipv6_enabled     = true
+  comment             = "Welcome"
+  default_root_object = "index.html"
+
+  aliases = ["${var.domain}"]
+
+  default_cache_behavior {
+    allowed_methods  = ["GET", "HEAD", "OPTIONS"]
+    cached_methods   = ["GET", "HEAD"]
+    target_origin_id = "${var.domain}"
+
+    forwarded_values {
+      query_string = false
+
+      cookies {
+        forward = "none"
+      }
+    }
+
+    viewer_protocol_policy = "allow-all"
+    min_ttl                = 0
+    default_ttl            = 3600
+    max_ttl                = 86400
+  }
+
+  price_class = "PriceClass_100"
+
+  restrictions {
+    geo_restriction {
+      restriction_type = "none"
+      locations        = []
+    }
+  }
+
+  viewer_certificate {
+    cloudfront_default_certificate = true
+  }
 }
