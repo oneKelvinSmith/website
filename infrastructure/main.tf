@@ -53,9 +53,10 @@ resource "aws_s3_bucket_object" "error" {
   source       = "../static/error.html"
 }
 
+
 # Cloudfront
 
-resource "aws_cloudfront_distribution" "s3_distribution" {
+resource "aws_cloudfront_distribution" "cdn" {
   origin {
     domain_name = "${aws_s3_bucket.website.bucket_domain_name}"
     origin_id   = "${var.domain}"
@@ -98,5 +99,25 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
 
   viewer_certificate {
     cloudfront_default_certificate = true
+  }
+}
+
+
+# Route53
+
+resource "aws_route53_zone" "dns" {
+  name = "${var.domain}"
+}
+
+resource "aws_route53_record" "domain" {
+  zone_id = "${aws_route53_zone.dns.zone_id}"
+  name    = "${var.domain}"
+  type    = "A"
+
+  alias {
+    name    = "${aws_cloudfront_distribution.cdn.domain_name}"
+    zone_id = "${aws_cloudfront_distribution.cdn.hosted_zone_id}"
+
+    evaluate_target_health = true
   }
 }
