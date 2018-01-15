@@ -7,6 +7,14 @@ provider "aws" {
 }
 
 
+# ACM SSL Certification
+
+data "aws_acm_certificate" "ssl" {
+  domain   = "${var.domain}"
+  statuses = ["ISSUED"]
+}
+
+
 # S3 Static Site
 
 data "aws_iam_policy_document" "website" {
@@ -33,6 +41,8 @@ resource "aws_s3_bucket" "website" {
     index_document = "index.html"
     error_document = "error.html"
   }
+
+  force_destroy = true
 }
 
 resource "aws_s3_bucket_object" "index" {
@@ -98,7 +108,8 @@ resource "aws_cloudfront_distribution" "cdn" {
   }
 
   viewer_certificate {
-    cloudfront_default_certificate = true
+    acm_certificate_arn = "${data.aws_acm_certificate.ssl.arn}"
+    ssl_support_method  = "sni-only"
   }
 }
 
