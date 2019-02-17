@@ -1,11 +1,10 @@
 terraform {
-  required_version = "~> 0.11.2"
+  required_version = "~> 0.11.11"
 }
 
 provider "aws" {
   region = "${var.region}"
 }
-
 
 # ACM SSL Certification
 
@@ -13,7 +12,6 @@ data "aws_acm_certificate" "ssl" {
   domain   = "${var.domain}"
   statuses = ["ISSUED"]
 }
-
 
 # S3 Static Site
 
@@ -28,7 +26,7 @@ data "aws_iam_policy_document" "website" {
       identifiers = ["*"]
     }
 
-   resources = ["arn:aws:s3:::${var.domain}/*"]
+    resources = ["arn:aws:s3:::${var.domain}/*"]
   }
 }
 
@@ -62,7 +60,6 @@ resource "aws_s3_bucket_object" "error" {
   key          = "error.html"
   source       = "../static/error.html"
 }
-
 
 # Cloudfront
 
@@ -112,7 +109,6 @@ resource "aws_cloudfront_distribution" "cdn" {
     ssl_support_method  = "sni-only"
   }
 }
-
 
 # Route53
 
