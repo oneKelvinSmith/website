@@ -4,7 +4,7 @@ Static web content served on [AWS S3](https://aws.amazon.com/s3/) via [terraform
 
 ## Requirements
 
-\*[Note]\*\* Instructions assume OS X.
+**[Note]** Instructions assume OS X.
 
 I'm using terraform to configure the AWS infrastructure and the AWC CLI client to get static files up to S3. I prefer to use [homebrew](https://brew.sh/) to manage the binaries.
 
@@ -23,6 +23,10 @@ I'm using a dotfile `~/.aws/credentials` with this structure:
 aws_access_key_id = SECRET_KEY_ID
 aws_secret_access_key = SECRET_ACCESS_KEY
 ```
+
+## SSL
+
+In order to serve the site over HTTPS I'm using the [AWS Certificate Manager](https://console.aws.amazon.com/acm/home?region=us-east-1#/) to provision SSL certs and a [Cloudfront](https://console.aws.amazon.com/cloudfront/home?region=us-east-1) distribution. It's important that the bucket and certificate are build in the `us-east-1` region because the Cloudfront distribution cannot be anywhere else.
 
 ## Deployment
 
