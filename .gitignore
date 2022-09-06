@@ -1,10 +1,2 @@
 # OS files
 .DS_Store
-
-# Compiled files
-*.tfstate*
-*.tfstate.backup
-.secrets*
-
-# Module directory
-.terraform/
